@@ -43,7 +43,6 @@ class ShapesManeger {
         shape = new Line(this, ...params);
         break;
     }
-    console.log(shape);
     this.shapes.push(shape);
   }
 
