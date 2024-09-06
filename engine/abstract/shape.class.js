@@ -9,7 +9,7 @@ class Shape {
       this.lastPosition=null;
       this.active = false;
       this.isCollapsed = false;
-      this.id = this.shapesManager.getShapes().length + 1;
+      this.id = this.shapesManager.getId();
       this.fill = { ...G_OPTIONS.fill };
       this.stroke = { ...G_OPTIONS.stroke };
     }

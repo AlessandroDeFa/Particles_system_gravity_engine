@@ -46,6 +46,13 @@ class ShapesManeger {
     this.shapes.push(shape);
   }
 
+  getId(){
+    if (this.shapes.length === 0) {
+      return 1;
+    }
+    return this.shapes[this.shapes.length - 1].id + 1;
+  }
+
   getShapes(){
     return this.shapes;
   }
