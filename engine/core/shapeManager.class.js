@@ -34,7 +34,6 @@ class ShapesManeger {
         shape = new Rectangle(this, ...params);
         break;
       case 'square':
-        console.log(...params);
         shape = new Rectangle(this, ...params);
         break;
       case 'circle':
@@ -44,6 +43,7 @@ class ShapesManeger {
         shape = new Line(this, ...params);
         break;
     }
+    console.log(shape);
     this.shapes.push(shape);
   }
 

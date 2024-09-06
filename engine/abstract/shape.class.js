@@ -10,8 +10,8 @@ class Shape {
       this.active = false;
       this.isCollapsed = false;
       this.id = this.shapesManager.getShapes().length + 1;
-      this.fill = G_OPTIONS.fill;
-      this.stroke = G_OPTIONS.stroke;
+      this.fill = { ...G_OPTIONS.fill };
+      this.stroke = { ...G_OPTIONS.stroke };
     }
 
     setActive(isActive) {
@@ -36,8 +36,6 @@ class Shape {
           throw new Error(`Unknown color type: ${type}`);
       }
     }
-
-
 
     setFill(r, g, b, a){
       this.fill.r = r;

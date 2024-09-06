@@ -33,7 +33,6 @@ class Line extends Shape {
 
   setLastPosition(){
     this.lastPosition = { x: this.x , y: this.y , x2: this.x2, y2: this.y2 };
-    console.log(this.lastPosition);
   }
 
   getRect(){

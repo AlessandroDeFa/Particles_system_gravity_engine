@@ -224,6 +224,7 @@ class EventHandler{
     value = this.validateValue(value);
     if (!shape || value === false) return;
     input.val(value);
+    console.log(shape)
     shape.setStrokeWidth(value);
   }
 
