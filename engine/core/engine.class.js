@@ -6,6 +6,7 @@ class Engine{
     this.ctx = ctx;
     this.particles = [];
     this.particlesSpawned = 0;
+    this.isSpawning = false;
     this.gravity = { x: 0, y: 1000};
     this.frameDt = 0;
     this.subStep = 1;
@@ -65,6 +66,7 @@ class Engine{
 
   spawnParticles(){
     if(this.particles.length < this.particlesSpawned && this.elapsedTime >= this.spawnDelay){
+      this.isSpawning = true;
       let angle = !this.randomAngle ? this.spawnAngle : (Math.random() * this.maxAngle);
       angle = angle * (Math.PI / 180);
       const velocity = {
@@ -76,6 +78,12 @@ class Engine{
       this.particles.push(particle);
       this.elapsedTime = 0;
     }
+
+    if (this.particles.length >= this.particlesSpawned) {
+        this.isSpawning = false;
+    }
+
+    this.eventHandler.toggleSpawnButton(this.isSpawning);
 
     this.#updateGUINumParticles();
   }

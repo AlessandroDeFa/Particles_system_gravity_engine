@@ -24,6 +24,11 @@ button:hover {
     opacity: 0.9;
 }
 
+#btn-spawn[disabled]{
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 button svg {
     width: 17px;
     height: 17px;

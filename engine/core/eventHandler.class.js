@@ -70,6 +70,7 @@ class EventHandler{
     });
 
     this.spawnParticlesBtn.on("click", ()=> {
+      if (this.engine.isSpawning) return;
       this.engine.setParticlesNum($("#particles-spawned").val());
     });
 
@@ -145,6 +146,10 @@ class EventHandler{
         shape.setLastPosition();
       })
     })
+  }
+
+  toggleSpawnButton(val){
+    this.spawnParticlesBtn.prop('disabled', val);
   }
 
   bindShapeButton(selector, shapeType, ...shapeArgs) {
