@@ -92,6 +92,7 @@ class Engine{
     this.particles = [];
     this.particlesSpawned = 0
     this.shapesManager.setShapes([]);
+    this.eventHandler.templateRenderer.clearHTML();
   }
 
   checkParticleCollision(particleA, particleB) {
