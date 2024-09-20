@@ -43,9 +43,27 @@ function main(){
   canvas.width = $(window).width();
   canvas.height = $(window).height();
   const engine = new Engine(canvas, ctx);
+  setupResolutionCanvas(canvas, ctx);
   engine.setSimulationUpdateRate(FRAME_RATE);
   engine.setSubStepsCount(SUB_STEPS);
   engine.run();
+}
+
+function setupResolutionCanvas(canvas, ctx){
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  const backingStorePixelRatio = ctx.webkitBackingStorePixelRatio
+      || ctx.mozBackingStorePixelRatio
+      || ctx.msBackingStorePixelRatio
+      || ctx.oBackingStorePixelRatio
+      || ctx.backingStorePixelRatio
+      || 1;
+  const pixelRatio = devicePixelRatio / backingStorePixelRatio;
+  canvas.style.width = canvas.width + 'px';
+  canvas.style.height = canvas.height + 'px';
+  canvas.width *= pixelRatio;
+  canvas.height *= pixelRatio;
+  canvas.paintCodePixelRatio = pixelRatio;
+  ctx.scale(pixelRatio, pixelRatio);
 }
 
 $(document).ready(main);
